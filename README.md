@@ -20,8 +20,8 @@
        ```
 * Start javascript builds
     ```shell
-    docker exec dev yarn build --watch
+    docker compose exec dev yarn build --watch
     ```
 * Start sass builds
     ```shell
-    docker exec dev yarn build:css --watch
+    docker compose exec dev yarn build:css --watch
