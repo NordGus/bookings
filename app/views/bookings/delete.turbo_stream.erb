@@ -1,0 +1,18 @@
+<%= turbo_stream.update :modal do %>
+  <header class="modal-card-head">
+    <p class="modal-card-title">Do you want to delete booking ID: <%= @booking.id %>?</p>
+  </header>
+  <section class="modal-card-body">
+    Are you sure you want to delete booking made by <%= @booking.name %>?
+  </section>
+  <footer class="modal-card-foot">
+    <%=
+      button_to "Yes",
+                booking_path(@booking),
+                class: "button is-danger",
+                method: :delete,
+                data: { action: "click->layout#closeModal" }
+    %>
+    <button class="button" data-action="click->layout#closeModal">No</button>
+  </footer>
+<% end %>
