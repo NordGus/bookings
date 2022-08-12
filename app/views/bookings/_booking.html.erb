@@ -1,0 +1,24 @@
+<td><%= booking.id %></td>
+<td><%= booking.hotel_name %></td>
+<td><%= booking.price %></td>
+<td><%= booking.currency %></td>
+<td><%= booking.start_date %></td>
+<td><%= booking.end_date %></td>
+<td><%= booking.name %></td>
+<td><%= booking.email %></td>
+<td>
+  <%= turbo_frame_tag "actions" do %>
+    <%=
+      link_to "Edit",
+              edit_booking_path(booking),
+              class: "button is-info",
+              data: { action: "click->layout#openModal" }
+    %>
+    <%=
+      link_to "Delete",
+              delete_booking_path(booking),
+              class: "button is-danger",
+              data: { action: "click->layout#openModal" }
+    %>
+  <% end %>
+</td>

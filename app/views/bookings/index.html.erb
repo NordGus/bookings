@@ -1,0 +1,49 @@
+<h1 class="title">Bookings</h1>
+
+<div class="block">
+  <%= bulma_will_paginate @bookings %>
+</div>
+
+<div class="block">
+  <table class="table is-hoverable is-fullwidth">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Hotel</th>
+        <th>Price</th>
+        <th>Currency</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Guest</th>
+        <th>Email</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr>
+        <th>ID</th>
+        <th>Hotel</th>
+        <th>Price</th>
+        <th>Currency</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Guest</th>
+        <th>Email</th>
+        <th></th>
+      </tr>
+    </tfoot>
+    <tbody>
+      <% @bookings.each do |booking| %>
+        <tr id="<%= dom_id(booking) %>">
+          <%= render booking %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="block">
+  <%= bulma_will_paginate @bookings %>
+</div>
+
+<div class="block"></div>
