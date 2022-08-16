@@ -16,7 +16,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_06_093312) do
 
   create_table "bookings", force: :cascade do |t|
     t.string "hotel_name"
-    t.integer "price"
+    t.decimal "price", precision: 10, scale: 2, default: "0.0"
     t.integer "currency", default: 0, null: false
     t.date "start_date"
     t.date "end_date"

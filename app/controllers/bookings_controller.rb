@@ -1,11 +1,13 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:new, :edit, :delete, :destroy]
+  before_action :set_booking, only: [:edit, :delete, :destroy]
 
   def index
-    @bookings = ::Bookings::List.new(page: page, per_page: params[:per_page]).run
+    @bookings = ::Bookings::List.new(page: page, per_page: per_page).run
   end
 
-  def new; end
+  def new
+    @booking = Booking.new
+  end
 
   def create
     @booking = ::Bookings::Create.new(params: booking_params).run

@@ -1,0 +1,82 @@
+<%= form_for booking do |f| %>
+<header class="modal-card-head">
+  <p class="modal-card-title"><%= title %></p>
+</header>
+<section class="modal-card-body">
+  <div class="field">
+    <label class="label">Hotel</label>
+    <div class="control">
+      <%= f.text_field :hotel_name, class: "input #{ has_errors f.object, :hotel_name }" %>
+    </div>
+    <% attribute_errors(f.object, :hotel_name).each do |error| %>
+      <p class="help is-danger"><%= error %></p>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <label class="label">Guest</label>
+    <div class="control">
+      <%= f.text_field :name, class: "input #{ has_errors f.object, :name }" %>
+    </div>
+    <% attribute_errors(f.object, :name).each do |error| %>
+      <p class="help is-danger"><%= error %></p>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <label class="label">Guest email</label>
+    <div class="control">
+      <%= f.email_field :email, class: "input #{ has_errors f.object, :email }" %>
+    </div>
+    <% attribute_errors(f.object, :email).each do |error| %>
+      <p class="help is-danger"><%= error %></p>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <label class="label">Price</label>
+    <div class="control">
+      <%= f.number_field :price, class: "input #{ has_errors f.object, :price }", step: 0.01, min: 0 %>
+    </div>
+    <% attribute_errors(f.object, :price).each do |error| %>
+      <p class="help is-danger"><%= error %></p>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <label class="label">Currency</label>
+    <div class="control">
+      <div class="select is-fullwidth <%= has_errors f.object, :currency %>">
+        <%= f.collection_select(:currency, Booking.currencies, :first, :first) %>
+      </div>
+    </div>
+    <% attribute_errors(f.object, :currency).each do |error| %>
+      <p class="help is-danger"><%= error %></p>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <label class="label">Start Date</label>
+    <div class="control">
+      <%= f.date_field :start_date, class: "input #{ has_errors f.object, :start_date }" %>
+    </div>
+    <% attribute_errors(f.object, :start_date).each do |error| %>
+      <p class="help is-danger"><%= error %></p>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <label class="label">End Date</label>
+    <div class="control">
+      <%= f.date_field :end_date, class: "input #{ has_errors f.object, :end_date }" %>
+    </div>
+    <% attribute_errors(f.object, :end_date).each do |error| %>
+      <p class="help is-danger"><%= error %></p>
+    <% end %>
+  </div>
+</section>
+<footer class="modal-card-foot">
+  <%= f.submit class: "button is-success" %>
+  <button class="button" data-action="click->layout#closeModal">Cancel</button>
+</footer>
+<% end %>

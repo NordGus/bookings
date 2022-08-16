@@ -1,0 +1,7 @@
+<%= turbo_stream.update dom_id(@booking) do %>
+  <%= render @booking %>
+<% end %>
+
+<%= turbo_stream.replace "modalContainer" do %>
+  <%= render "layouts/modal" %>
+<% end %>

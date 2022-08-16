@@ -1,6 +1,6 @@
 <td><%= booking.id %></td>
 <td><%= booking.hotel_name %></td>
-<td><%= booking.price %></td>
+<td><%= number_to_currency(booking.price, delimiter: ".", separator: ",", format: "%n") %></td>
 <td><%= booking.currency %></td>
 <td><%= booking.start_date %></td>
 <td><%= booking.end_date %></td>

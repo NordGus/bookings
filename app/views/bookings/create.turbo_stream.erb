@@ -1,0 +1,7 @@
+<%= turbo_stream.append :bookings do %>
+  <%= render @booking %>
+<% end %>
+
+<%= turbo_stream.replace "modalContainer" do %>
+  <%= render "layouts/modal" %>
+<% end %>

@@ -30,7 +30,7 @@ module PaginationHelper
   def bulma_will_paginate(collection = nil, options = {})
     options, collection = collection, nil if collection.is_a? Hash
     options = options.merge(
-      renderer: PaginationHelper::LinkRenderer,
+      renderer: ::PaginationHelper::LinkRenderer,
       previous_label: 'Previous',
       next_label: 'Next',
     )
